@@ -1,0 +1,103 @@
+/* CatalogPage - Apple TV+ Minimalist */
+.catalog {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-lg);
+}
+
+.catalog__header {
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.catalog__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.catalog__toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    background-color: var(--bg-surface);
+    padding: var(--space-md);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-lg);
+}
+
+.catalog__search {
+    flex: 1;
+    min-width: 250px;
+}
+
+.catalog__search-input {
+    width: 100%;
+    padding: 0.65rem 1rem;
+    border-radius: var(--radius-full);
+    border: 1px solid transparent;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    transition: all var(--transition-fast);
+}
+
+.catalog__search-input:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.catalog__search-input::placeholder {
+    color: var(--text-muted);
+}
+
+.catalog__filters {
+    display: flex;
+    gap: var(--space-sm);
+}
+
+.catalog__select {
+    padding: 0.65rem 1rem;
+    border-radius: var(--radius-full);
+    border: 1px solid transparent;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.catalog__select:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.catalog__loader {
+    display: flex;
+    justify-content: center;
+    padding: var(--space-2xl) 0;
+}
+
+.catalog__error {
+    padding: var(--space-xl) 0;
+}
+
+.catalog__grid {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .catalog__toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .catalog__title {
+        font-size: 1.75rem;
+    }
+}

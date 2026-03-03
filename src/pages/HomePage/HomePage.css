@@ -1,0 +1,60 @@
+/* HomePage - Apple TV+ Minimalist */
+
+.home-page {
+    min-height: 100vh;
+    background-color: var(--bg-primary);
+}
+
+.home-page--loading,
+.home-page--error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.home-page--error {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.home-page__content {
+    position: relative;
+    padding-top: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
+}
+
+/* Staggered fade-in animation for sections */
+.home-page__content > * {
+    animation: sectionFadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-fill-mode: both;
+}
+
+.home-page__content > *:nth-child(1) { animation-delay: 0.1s; }
+.home-page__content > *:nth-child(2) { animation-delay: 0.2s; }
+.home-page__content > *:nth-child(3) { animation-delay: 0.3s; }
+.home-page__content > *:nth-child(4) { animation-delay: 0.4s; }
+.home-page__content > *:nth-child(5) { animation-delay: 0.5s; }
+.home-page__content > *:nth-child(6) { animation-delay: 0.6s; }
+.home-page__content > *:nth-child(7) { animation-delay: 0.7s; }
+.home-page__content > *:nth-child(8) { animation-delay: 0.8s; }
+.home-page__content > *:nth-child(9) { animation-delay: 0.9s; }
+
+@keyframes sectionFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .home-page__content {
+        padding-top: var(--space-xl);
+        padding-bottom: var(--space-xl);
+    }
+}

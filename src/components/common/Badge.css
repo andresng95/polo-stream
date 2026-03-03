@@ -1,0 +1,25 @@
+/* Badge - Apple TV+ Minimalist */
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-full);
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.badge--primary {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--text-primary);
+}
+
+.badge--success {
+    background-color: rgba(52, 199, 89, 0.2);
+    color: #34c759;
+}
+
+.badge--warning {
+    background-color: rgba(255, 149, 0, 0.2);
+    color: #ff9500;
+}

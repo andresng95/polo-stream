@@ -1,0 +1,117 @@
+/* AdminPage - Apple TV+ Minimalist */
+.admin-page {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-lg);
+}
+
+.admin-page__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+.admin-page__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.admin-page__tabs {
+    display: flex;
+    gap: 2px;
+    margin-bottom: var(--space-lg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.admin-page__tab-btn {
+    padding: 0.875rem 1.5rem;
+    background: transparent;
+    color: var(--text-secondary);
+    border: none;
+    border-bottom: 2px solid transparent;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all var(--transition-fast);
+}
+
+.admin-page__tab-btn:hover {
+    color: var(--text-primary);
+}
+
+.admin-page__tab-btn--active {
+    color: var(--text-primary);
+    border-bottom-color: var(--text-primary);
+}
+
+.admin-page__actions {
+    margin-bottom: var(--space-md);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.admin-table-container {
+    overflow-x: auto;
+    background-color: var(--bg-surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--text-secondary);
+    text-align: left;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.admin-table th {
+    background-color: rgba(0, 0, 0, 0.2);
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+}
+
+.admin-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.admin-table__actions {
+    display: flex;
+    gap: var(--space-xs);
+}
+
+.admin-btn {
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-md);
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all var(--transition-fast);
+}
+
+.admin-btn--edit {
+    background-color: rgba(0, 122, 255, 0.15);
+    color: #007aff;
+}
+
+.admin-btn--edit:hover {
+    background-color: rgba(0, 122, 255, 0.25);
+}
+
+.admin-btn--delete {
+    background-color: rgba(255, 59, 48, 0.15);
+    color: #ff3b30;
+}
+
+.admin-btn--delete:hover {
+    background-color: rgba(255, 59, 48, 0.25);
+}

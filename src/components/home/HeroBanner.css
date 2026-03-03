@@ -1,0 +1,251 @@
+/* HeroBanner - Apple TV+ Minimalist */
+.hero-banner {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    min-height: 650px;
+    max-height: 1000px;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+/* Background images with smooth crossfade */
+.hero-banner__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center 20%;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+    will-change: opacity;
+}
+
+.hero-banner__bg--active {
+    opacity: 1;
+}
+
+/* Single elegant gradient overlay */
+.hero-banner__gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to right,
+        rgba(11, 11, 15, 0.95) 0%,
+        rgba(11, 11, 15, 0.7) 30%,
+        rgba(11, 11, 15, 0.3) 60%,
+        transparent 100%
+    );
+    pointer-events: none;
+}
+
+.hero-banner__gradient::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(
+        to top,
+        var(--bg-primary) 0%,
+        transparent 100%
+    );
+}
+
+/* Content */
+.hero-banner__content {
+    position: absolute;
+    bottom: 18%;
+    left: 5%;
+    max-width: 550px;
+    z-index: 10;
+    animation: heroFadeIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-banner__title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.05;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.04em;
+}
+
+.hero-banner__overview {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    font-weight: 400;
+    max-width: 480px;
+}
+
+/* Action buttons - Apple style */
+.hero-banner__actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.hero-banner__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border-radius: var(--radius-full);
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    border: none;
+    cursor: pointer;
+    letter-spacing: -0.01em;
+}
+
+.hero-banner__btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.hero-banner__btn--primary {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+}
+
+.hero-banner__btn--primary:hover {
+    opacity: 0.9;
+    transform: scale(1.03);
+}
+
+.hero-banner__btn--secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.hero-banner__btn--secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Pagination - minimal dots */
+.hero-banner__pagination {
+    position: absolute;
+    bottom: 8%;
+    left: 5%;
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.hero-banner__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    padding: 0;
+}
+
+.hero-banner__dot:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.hero-banner__dot--active {
+    background: var(--text-primary);
+    width: 24px;
+    border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .hero-banner__title {
+        font-size: 3rem;
+    }
+    
+    .hero-banner__content {
+        max-width: 480px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .hero-banner {
+        height: 80vh;
+        min-height: 550px;
+    }
+    
+    .hero-banner__title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-banner__overview {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-banner {
+        height: 70vh;
+        min-height: 500px;
+    }
+    
+    .hero-banner__gradient {
+        background: linear-gradient(
+            to top,
+            rgba(11, 11, 15, 1) 0%,
+            rgba(11, 11, 15, 0.8) 40%,
+            rgba(11, 11, 15, 0.4) 100%
+        );
+    }
+    
+    .hero-banner__content {
+        left: var(--space-md);
+        right: var(--space-md);
+        bottom: 15%;
+        max-width: none;
+    }
+    
+    .hero-banner__title {
+        font-size: 2rem;
+    }
+    
+    .hero-banner__overview {
+        font-size: 0.95rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero-banner__btn {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .hero-banner__pagination {
+        left: var(--space-md);
+        bottom: 6%;
+    }
+}

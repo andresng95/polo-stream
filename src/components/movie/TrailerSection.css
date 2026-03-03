@@ -1,0 +1,22 @@
+/* TrailerSection - Apple TV+ Minimalist */
+.trailer-section {
+    padding: var(--space-xl) 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    margin-top: var(--space-lg);
+}
+
+.trailer-section__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+    letter-spacing: -0.02em;
+}
+
+.trailer-section__video-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: var(--shadow-card-hover);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+}

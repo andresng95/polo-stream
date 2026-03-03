@@ -1,0 +1,34 @@
+/* EmptyState - Apple TV+ Minimalist */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2xl) var(--space-lg);
+    text-align: center;
+    background-color: var(--bg-surface);
+    border-radius: var(--radius-lg);
+    margin: var(--space-lg) 0;
+}
+
+.empty-state__icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-sm);
+    color: var(--text-muted);
+    opacity: 0.5;
+}
+
+.empty-state__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.01em;
+}
+
+.empty-state__message {
+    color: var(--text-secondary);
+    max-width: 360px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}

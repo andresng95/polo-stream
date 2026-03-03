@@ -1,0 +1,10 @@
+/* Tag - Apple TV+ Minimalist */
+.tag {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--text-secondary);
+    padding: 0.3rem 0.65rem;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    text-transform: capitalize;
+}

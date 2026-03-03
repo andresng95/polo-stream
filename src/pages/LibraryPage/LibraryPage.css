@@ -1,0 +1,141 @@
+/* LibraryPage - Apple TV+ Minimalist */
+.library-page {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 5rem var(--space-lg) var(--space-2xl);
+    min-height: 100vh;
+}
+
+.library-page__header {
+    margin-bottom: var(--space-xl);
+}
+
+.library-page__title {
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.library-page__subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.library-page__loading {
+    display: flex;
+    justify-content: center;
+    padding: var(--space-2xl) 0;
+}
+
+.library-page__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+/* Library Section */
+.library-section {
+    margin-bottom: var(--space-sm);
+}
+
+.library-section__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+    letter-spacing: -0.02em;
+}
+
+/* Library Grid */
+.library-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: var(--space-md);
+}
+
+/* Library Card */
+.library-card {
+    text-decoration: none;
+    transition: transform var(--transition-normal);
+}
+
+.library-card:hover {
+    transform: scale(1.04);
+}
+
+.library-card__poster {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--bg-surface);
+    aspect-ratio: 2/3;
+    box-shadow: var(--shadow-card);
+}
+
+.library-card__poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.library-card__badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    color: var(--text-primary);
+}
+
+.library-card__badge--bought {
+    background: rgba(52, 199, 89, 0.2);
+    color: #34c759;
+}
+
+.library-card__badge--rented {
+    background: rgba(0, 122, 255, 0.2);
+    color: #007aff;
+}
+
+.library-card__info {
+    padding: 0.5rem 0.25rem;
+}
+
+.library-card__title {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 0.2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.library-card__year {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .library-page {
+        padding: 5rem var(--space-md) var(--space-lg);
+    }
+    
+    .library-page__title {
+        font-size: 1.5rem;
+    }
+    
+    .library-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: var(--space-sm);
+    }
+}

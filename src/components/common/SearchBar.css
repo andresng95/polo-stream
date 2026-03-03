@@ -1,0 +1,43 @@
+/* SearchBar - Apple TV+ Minimalist */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    border: 1px solid transparent;
+    transition: all var(--transition-fast);
+}
+
+.search-bar:focus-within {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.search-bar__input {
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    outline: none;
+    flex: 1;
+}
+
+.search-bar__input::placeholder {
+    color: var(--text-muted);
+}
+
+.search-bar__button {
+    background: transparent;
+    padding: 0.5rem 0.75rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color var(--transition-fast);
+}
+
+.search-bar__button:hover {
+    color: var(--text-primary);
+}

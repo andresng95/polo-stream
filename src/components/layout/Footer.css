@@ -1,0 +1,38 @@
+/* Footer - Apple TV+ Minimalist */
+.footer {
+    background-color: var(--bg-primary);
+    padding: var(--space-xl) 0;
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer__container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.footer__text {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.01em;
+}
+
+.footer__links {
+    display: flex;
+    gap: var(--space-md);
+}
+
+.footer__link {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    transition: color var(--transition-fast);
+}
+
+.footer__link:hover {
+    color: var(--text-primary);
+}

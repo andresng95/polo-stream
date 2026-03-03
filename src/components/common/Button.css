@@ -1,0 +1,64 @@
+/* Button - Apple TV+ Style */
+.button {
+    padding: 0.875rem 2rem;
+    border-radius: var(--radius-full);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    letter-spacing: -0.01em;
+}
+
+.button--primary {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+}
+
+.button--primary:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+.button--secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    backdrop-filter: blur(10px);
+}
+
+.button--secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.button--outline {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.button--outline:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.button--ghost {
+    background: transparent;
+    color: var(--text-secondary);
+}
+
+.button--ghost:hover {
+    color: var(--text-primary);
+}
+
+/* Size variants */
+.button--sm {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.85rem;
+}
+
+.button--lg {
+    padding: 1rem 2.5rem;
+    font-size: 1.05rem;
+}

@@ -1,0 +1,24 @@
+/* MovieDetailPage - Apple TV+ Minimalist */
+.movie-detail-page {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: var(--space-lg);
+}
+
+.back-btn {
+    background: transparent;
+    color: var(--text-secondary);
+    border: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    margin-bottom: var(--space-md);
+    transition: color var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.back-btn:hover {
+    color: var(--text-primary);
+}
