@@ -5,6 +5,11 @@
     padding: var(--space-lg);
 }
 
+.movie-detail-page__back-wrapper {
+    text-align: center;
+    margin-top: var(--space-lg);
+}
+
 .back-btn {
     background: transparent;
     color: var(--text-secondary);

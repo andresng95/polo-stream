@@ -5,7 +5,7 @@ import { fetchMovieDetails, fetchMovieVideos } from '../../services/tmdb';
 import MovieInfo from '../../components/movie/MovieInfo';
 import TrailerSection from '../../components/movie/TrailerSection';
 import EmptyState from '../../components/common/EmptyState';
-import Loader from '../../components/common/Loader';
+import { MovieDetailSkeleton } from '../../components/common/Skeleton';
 import { useLocalStorageState } from '../../hooks/useLocalStorageState';
 import { useToast } from '../../components/common/Toast';
 import { useConfirm } from '../../components/common/ConfirmDialog';
@@ -34,7 +34,7 @@ const MovieDetailPage = () => {
     if (loading) {
         return (
             <div className="movie-detail-page">
-                <Loader size="large" fullScreen={false} />
+                <MovieDetailSkeleton />
             </div>
         );
     }
@@ -47,7 +47,7 @@ const MovieDetailPage = () => {
                     message={error || "La película que buscas no existe o ha sido eliminada."}
                     icon="❓"
                 />
-                <div style={{ textAlign: 'center', marginTop: '1rem' }}>
+                <div className="movie-detail-page__back-wrapper">
                     <button className="back-btn" onClick={() => navigate('/catalog')}>
                         Volver al catálogo
                     </button>

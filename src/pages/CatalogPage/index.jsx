@@ -108,12 +108,6 @@ const CatalogPage = () => {
             </div>
 
             <div className="catalog__content">
-                {loading && (
-                    <div className="catalog__loader">
-                        <Loader size="large" />
-                    </div>
-                )}
-
                 {error && (
                     <div className="catalog__error">
                         <EmptyState
@@ -124,11 +118,13 @@ const CatalogPage = () => {
                     </div>
                 )}
 
-                {!loading && !error && (
+                {!error && (
                     <div className="catalog__grid">
                         <MovieGrid
                             movies={filteredMovies}
                             title={debouncedQuery ? `Search Results for "${debouncedQuery}"` : "Popular Movies"}
+                            loading={loading}
+                            skeletonCount={12}
                         />
                     </div>
                 )}

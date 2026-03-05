@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import HeroBanner from '../../components/home/HeroBanner';
 import MovieCarousel from '../../components/home/MovieCarousel';
 import Loader from '../../components/common/Loader';
+import Skeleton, { CarouselSkeleton } from '../../components/common/Skeleton';
 import { 
     fetchTrendingMovies, 
     fetchPopularMovies, 
@@ -77,7 +78,17 @@ const HomePage = () => {
     if (loading) {
         return (
             <div className="home-page home-page--loading">
-                <Loader />
+                {/* Hero Skeleton */}
+                <div className="home-page__hero-skeleton">
+                    <Skeleton variant="rectangular" width="100%" height="70vh" />
+                </div>
+                
+                {/* Carousel Skeletons */}
+                <div className="home-page__content">
+                    <CarouselSkeleton size="large" count={5} />
+                    <CarouselSkeleton size="medium" count={6} />
+                    <CarouselSkeleton size="medium" count={6} />
+                </div>
             </div>
         );
     }

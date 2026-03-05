@@ -1,0 +1,174 @@
+/* Base Skeleton */
+.skeleton {
+    background-color: rgba(255, 255, 255, 0.08);
+    display: block;
+}
+
+.skeleton--text {
+    border-radius: 4px;
+    height: 1em;
+}
+
+.skeleton--rectangular {
+    border-radius: var(--radius-md);
+}
+
+.skeleton--circular {
+    border-radius: 50%;
+}
+
+/* Animations */
+.skeleton--shimmer {
+    position: relative;
+    overflow: hidden;
+}
+
+.skeleton--shimmer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.08) 50%,
+        transparent 100%
+    );
+    animation: skeleton-shimmer 1.5s infinite;
+}
+
+.skeleton--pulse {
+    animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+.skeleton--none {
+    animation: none;
+}
+
+@keyframes skeleton-shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes skeleton-pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Movie Card Skeleton */
+.skeleton-card {
+    background-color: var(--bg-surface);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.skeleton-card__image {
+    aspect-ratio: 2/3;
+    width: 100%;
+}
+
+.skeleton-card__content {
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+/* Movie Grid Skeleton */
+.skeleton-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: var(--space-lg);
+}
+
+@media (max-width: 768px) {
+    .skeleton-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: var(--space-md);
+    }
+}
+
+/* Carousel Skeleton */
+.skeleton-carousel {
+    padding: var(--space-lg) 0;
+}
+
+.skeleton-carousel__title {
+    margin-bottom: var(--space-md);
+}
+
+.skeleton-carousel__track {
+    display: flex;
+    gap: var(--space-md);
+    overflow: hidden;
+}
+
+.skeleton-carousel__item--small {
+    flex-shrink: 0;
+    width: 160px;
+}
+
+.skeleton-carousel__item--medium {
+    flex-shrink: 0;
+    width: 200px;
+}
+
+.skeleton-carousel__item--large {
+    flex-shrink: 0;
+    width: 280px;
+}
+
+.skeleton-carousel__poster {
+    aspect-ratio: 2/3;
+    width: 100%;
+    border-radius: var(--radius-md);
+}
+
+/* Movie Detail Skeleton */
+.skeleton-detail {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: var(--space-xl);
+    padding: var(--space-xl);
+}
+
+.skeleton-detail__poster {
+    aspect-ratio: 2/3;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.skeleton-detail__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.skeleton-detail__meta {
+    display: flex;
+    gap: var(--space-md);
+}
+
+.skeleton-detail__actions {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+}
+
+@media (max-width: 768px) {
+    .skeleton-detail {
+        grid-template-columns: 1fr;
+    }
+    
+    .skeleton-detail__poster {
+        max-width: 250px;
+        margin: 0 auto;
+    }
+}

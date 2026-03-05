@@ -1,0 +1,70 @@
+.error-boundary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    padding: var(--space-xl);
+}
+
+.error-boundary__content {
+    text-align: center;
+    max-width: 500px;
+}
+
+.error-boundary__icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--space-lg);
+    color: var(--color-error);
+}
+
+.error-boundary__icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.error-boundary__title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.error-boundary__message {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: var(--space-lg);
+    line-height: 1.6;
+}
+
+.error-boundary__details {
+    text-align: left;
+    background-color: var(--bg-surface);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    margin-bottom: var(--space-lg);
+    font-size: 0.85rem;
+}
+
+.error-boundary__details summary {
+    cursor: pointer;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-sm);
+}
+
+.error-boundary__details pre {
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+    color: var(--color-error);
+    font-family: monospace;
+    font-size: 0.8rem;
+    margin-top: var(--space-sm);
+}
+
+.error-boundary__actions {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}

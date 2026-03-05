@@ -1,9 +1,58 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useCallback, memo } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { getImageUrl } from '../../services/tmdb';
 import './MovieCarousel.css';
 
-const MovieCarousel = ({ title, movies, size = 'medium' }) => {
+const FALLBACK_POSTER = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 450"%3E%3Crect fill="%231a1a1a" width="300" height="450"/%3E%3Ctext fill="%23666" font-family="sans-serif" font-size="14" text-anchor="middle" x="150" y="225"%3ENo Image%3C/text%3E%3C/svg%3E';
+
+// Memoized carousel item to prevent unnecessary re-renders
+const CarouselItem = memo(({ movie, size }) => {
+    const [imgSrc, setImgSrc] = useState(
+        getImageUrl(movie.poster_path, size === 'large' ? 'w500' : 'w342')
+    );
+
+    const handleError = useCallback(() => {
+        setImgSrc(FALLBACK_POSTER);
+    }, []);
+
+    return (
+        <Link 
+            to={`/movie/${movie.id}`}
+            className={`movie-carousel__item movie-carousel__item--${size}`}
+        >
+            <div className="movie-carousel__poster">
+                <img 
+                    src={imgSrc}
+                    alt={movie.title}
+                    loading="lazy"
+                    onError={handleError}
+                />
+                <div className="movie-carousel__overlay">
+                    <span className="movie-carousel__overlay-title">{movie.title}</span>
+                    <span className="movie-carousel__rating">
+                        {movie.release_date?.split('-')[0]} • ★ {movie.vote_average?.toFixed(1)}
+                    </span>
+                </div>
+            </div>
+        </Link>
+    );
+});
+
+CarouselItem.displayName = 'CarouselItem';
+
+CarouselItem.propTypes = {
+    movie: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        poster_path: PropTypes.string,
+        release_date: PropTypes.string,
+        vote_average: PropTypes.number
+    }).isRequired,
+    size: PropTypes.oneOf(['small', 'medium', 'large']).isRequired
+};
+
+const MovieCarousel = memo(({ title, movies, size = 'medium' }) => {
     const carouselRef = useRef(null);
     const [canScrollLeft, setCanScrollLeft] = useState(false);
     const [canScrollRight, setCanScrollRight] = useState(true);
@@ -67,25 +116,7 @@ const MovieCarousel = ({ title, movies, size = 'medium' }) => {
                     ref={carouselRef}
                 >
                     {movies.map((movie) => (
-                        <Link 
-                            key={movie.id} 
-                            to={`/movie/${movie.id}`}
-                            className={`movie-carousel__item movie-carousel__item--${size}`}
-                        >
-                            <div className="movie-carousel__poster">
-                                <img 
-                                    src={getImageUrl(movie.poster_path, size === 'large' ? 'w500' : 'w342')} 
-                                    alt={movie.title}
-                                    loading="lazy"
-                                />
-                                <div className="movie-carousel__overlay">
-                                    <span className="movie-carousel__overlay-title">{movie.title}</span>
-                                    <span className="movie-carousel__rating">
-                                        {movie.release_date?.split('-')[0]} • ★ {movie.vote_average?.toFixed(1)}
-                                    </span>
-                                </div>
-                            </div>
-                        </Link>
+                        <CarouselItem key={movie.id} movie={movie} size={size} />
                     ))}
                 </div>
 
@@ -103,6 +134,22 @@ const MovieCarousel = ({ title, movies, size = 'medium' }) => {
             </div>
         </section>
     );
+});
+
+MovieCarousel.displayName = 'MovieCarousel';
+
+MovieCarousel.propTypes = {
+    title: PropTypes.string.isRequired,
+    movies: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            title: PropTypes.string.isRequired,
+            poster_path: PropTypes.string,
+            release_date: PropTypes.string,
+            vote_average: PropTypes.number
+        })
+    ).isRequired,
+    size: PropTypes.oneOf(['small', 'medium', 'large'])
 };
 
 export default MovieCarousel;

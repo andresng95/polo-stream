@@ -5,17 +5,25 @@
     background-color: var(--bg-primary);
 }
 
+.home-page--loading {
+    flex-direction: column;
+}
+
 .home-page--loading,
 .home-page--error {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     min-height: 100vh;
 }
 
 .home-page--error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: var(--text-secondary);
     font-size: 1rem;
+}
+
+.home-page__hero-skeleton {
+    width: 100%;
 }
 
 .home-page__content {

@@ -20,6 +20,39 @@
     /* 2:3 aspect ratio */
 }
 
+/* Skeleton loading state */
+.card__skeleton {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+}
+
+.card__skeleton::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.08) 50%,
+        transparent 100%
+    );
+    animation: card-shimmer 1.5s infinite;
+}
+
+@keyframes card-shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
 .card__image {
     position: absolute;
     top: 0;
@@ -27,6 +60,12 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card__image--loaded {
+    opacity: 1;
 }
 
 .card__overlay {
